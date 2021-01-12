@@ -3,6 +3,10 @@ import './App.css';
 import TopBar from "../TopBar/TopBar"
 import TaskList from "../TaskList/TaskList";
 import { nanoid } from "nanoid"; // to create unique IDs, since I am setting the newtasks on App level. 
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "/Users/alicemaciejewska/Desktop/Projects/frontend_mentor/todo-app-main/to-do-january/src/Components/globalStyles.js";
+import { lightTheme, darkTheme } from "/Users/alicemaciejewska/Desktop/Projects/frontend_mentor/todo-app-main/to-do-january/src/Components/themes.js";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -10,8 +14,6 @@ function App() {
     { id: 1, name: "Sleep", completed: false },
     { id: 2, name: "Repeat", completed: false }
   ]);
-
- // state of the document - state of the active toggle will change the edits 
 
   const addTask = (name) => {
     setTasks((prev) => [...prev, {
@@ -33,26 +35,54 @@ function App() {
   setTasks(updated)
 }
 
+const deleteCompleted = () => {
+    const completed = tasks.filter(t => !t.completed)
+    setTasks(completed);
+}
+// styling
+const [theme, setTheme] = useState('light');
+const [isDarkMode, setDarkMode] = useState(false);
 
-  return (
+const themeToggler = () => {
+  theme === 'light' ? setTheme('dark') : setTheme('light'); 
+}
+
+const toggleDarkMode = () => {
+  isDarkMode ? setDarkMode(true) : setDarkMode(false);
+};
+
+  return (    
+  <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+  <>
+  <GlobalStyles/>
+  <div className={theme === 'light' ? "lightBackground background" : "darkBackground background"}>
     <div className="app">
+    <div className="heading">
+    <h1>TODO</h1>
+    <DarkModeSwitch
+      className="switcher"
+      onClick={themeToggler}
+      size={20}
+      checked={isDarkMode}
+      onChange={toggleDarkMode}  
+    />
+    </div>
     <TopBar
+      className="topBar"
       onAdd={addTask} />
     <TaskList 
+      className="taskList"
       tasks={tasks}
       onToggle={toggleCompleted}
       onDelete={deleteTask}
+      onDeleteCompleted={deleteCompleted}
     />
+    <p>Drag and drop to reorder list</p>
     </div>
+    </div>
+    </>
+    </ThemeProvider>
   );
 }
 
 export default App;
-
-
-/* const [newTask, setNewTask] = useState({
-      id: "",
-      name: "",
-      completed: false
-    });
-*/

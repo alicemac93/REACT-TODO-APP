@@ -6,8 +6,8 @@ import "./TaskList.css";
 function TaskList(props){
 
     const [filters, setFilter] = useState(["All"]);
-    const filter_names = ["All", "Active", "Completed"];
-    const FILTER_MAP = {
+    const filter_NAMES = ["All", "Active", "Completed"];
+    const filter_MAP = {
         All: () => true,
         Active: task => !task.completed,
         Completed: task => task.completed
@@ -16,28 +16,28 @@ function TaskList(props){
     return(
         <div className="taskList">
         {props.tasks
-        .filter(FILTER_MAP[filters])
+        .filter(filter_MAP[filters])
         .map((t, i) => 
         <Task
-        name={t.name}
-        key={i}
-        id={t.id}
-        completed={t.completed}
-        onDelete={props.onDelete}
-        onToggle={props.onToggle} />
+            name={t.name}
+            key={i}
+            id={t.id}
+            completed={t.completed}
+            onDelete={props.onDelete}
+            onToggle={props.onToggle} />
         )}
         {//all of this below into Filter
         }
         <div className="stats">
         <p>{props.tasks.length - props.tasks.filter(t => t.completed === true).length} items left</p>
-        {filter_names.map((f,i) => 
+        {filter_NAMES.map((f,i) => 
         <Filter 
             name={f}
             key={i}
             filter={filters}
             setFilter={setFilter}
         />)}
-        <button>Clear Completed</button>
+        <span onClick={props.onDeleteCompleted}>Clear Completed</span>
         </div>
         </div>
     )   

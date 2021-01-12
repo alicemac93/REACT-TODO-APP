@@ -1,6 +1,26 @@
 .app{
+  padding-top: 10%;
   display: flex;
   flex-direction: column;
   width: 30%;
   margin: 0 auto;
+}
+
+.heading {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.darkBackground {
+  background-image: url(../images/bg-desktop-dark.jpg);
+}
+
+.lightBackground {
+  background-image: url(../images/bg-desktop-light.jpg);
+}
+
+.background {
+  background-repeat: no-repeat;
+  transition: all 0.50s linear;
 }
