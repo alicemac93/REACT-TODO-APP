@@ -1,12 +1,6 @@
 import React, {useState} from "react";
 import "./TopBar.css";
 
-const styles = {
-    width: "100%",
-    height: 40,
-    border: "none",
-    borderRadius: 6 ,
-    }
 
 function TopBar(props){
 
@@ -26,7 +20,7 @@ const handleSubmit = (e) => {
 return (
     <div>
     <input 
-    style={styles}
+    className="topBar text"
     type="text"
     value={inputText}
     onChange={handleChange}

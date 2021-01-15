@@ -2,5 +2,8 @@
     display: inline-flex;
     border-top: 0.5px solid lightgray;
     border-bottom: 0.5px solid lightgray;
-    justify-content: space-between;
+}
+
+.task p {
+    padding-left: 150px;
 }

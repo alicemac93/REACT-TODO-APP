@@ -55,12 +55,11 @@ const toggleDarkMode = () => {
   <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
   <>
   <GlobalStyles/>
-  <div className={theme === 'light' ? "lightBackground background" : "darkBackground background"}>
-    <div className="app">
+  <div className={theme === 'light' ? "lightBackground background" : "darkBackground background"} 
+    ><div className="app">
     <div className="heading">
     <h1>TODO</h1>
     <DarkModeSwitch
-      className="switcher"
       onClick={themeToggler}
       size={20}
       checked={isDarkMode}

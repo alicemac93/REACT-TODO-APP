@@ -2,7 +2,7 @@ import React from "react";
 
 function Filter(props){
     return(
-        <span onClick={() => props.setFilter(props.name)}>{props.name}</span>
+        <span className="text" onClick={() => props.setFilter(props.name)}>{props.name}</span>
     )
 }
 

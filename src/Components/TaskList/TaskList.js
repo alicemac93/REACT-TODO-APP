@@ -37,7 +37,7 @@ function TaskList(props){
             filter={filters}
             setFilter={setFilter}
         />)}
-        <span onClick={props.onDeleteCompleted}>Clear Completed</span>
+        <span className="text" onClick={props.onDeleteCompleted}>Clear Completed</span>
         </div>
         </div>
     )   
