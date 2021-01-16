@@ -2,9 +2,12 @@ import React, {useState} from "react";
 import Radio from '@material-ui/core/Radio';
 import { makeStyles } from '@material-ui/core/styles';
 import "./Task.css";
-import cross from "../images/icon-cross.svg"
+import cross from "/Users/alicemaciejewska/Desktop/Projects/frontend_mentor/todo-app-main/to-do-january/src/images/icon-cross.svg"
 
+// styles
+const delBtnStyle = {height: 15, position: "absolute", right: "5%", top: 20 }
 const crossed = {textDecoration: "line-through"}
+
 const useStyles = makeStyles({
     root: {
         color: 'lightgrey',
@@ -29,11 +32,12 @@ function Task(props) {
             classes={{
                 checked: classes.checked, 
                 root: classes.root}}
+    
             checked={props.completed}
             />
         <p style={props.completed ? crossed : null }>{props.name}</p>
         {isShown &&
-        <input type="image" alt="close button" style={{height: 15, padding: 15}} src={cross} onClick={() => props.onDelete(props.id)} />}
+        <input type="image" alt="close button" style={delBtnStyle} src={cross} onClick={() => props.onDelete(props.id)} />}
         </div>
     )
 }

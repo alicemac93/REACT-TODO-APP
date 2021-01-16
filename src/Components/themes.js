@@ -1,6 +1,6 @@
 
-const darkBackground = require("./images/bg-desktop-dark.jpg");
-const lightBackground = require("./images/bg-desktop-light.jpg");
+const darkBackground = require("../images/bg-desktop-dark.jpg");
+const lightBackground = require("../images/bg-desktop-light.jpg");
 
 export const lightTheme = {
     backgroundImg: darkBackground,

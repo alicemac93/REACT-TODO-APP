@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import "./TopBar.css";
-
+import circle from "/Users/alicemaciejewska/Desktop/Projects/frontend_mentor/todo-app-main/to-do-january/src/images/dry-clean.svg";
+import Radio from '@material-ui/core/Radio';
 
 function TopBar(props){
 
@@ -13,20 +13,26 @@ const handleChange = (event) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
+    if(e.keyCode === 13){
     props.onAdd(inputText);
     setinputText("");
+      }
   }
 
 return (
     <div>
+    <Radio
+    disabled="true" 
+    style={{position: "absolute", zIndex: 10, color: "lightgrey"}}
+    />
     <input 
     className="topBar text"
+    style={{backgroundImage: ({circle}) }}
     type="text"
     value={inputText}
     onChange={handleChange}
-    placeholder="Create a new todo" />
-    <button
-    onClick={handleSubmit}>Add</button>
+    placeholder="Create a new todo" 
+    onKeyUp={handleSubmit} />
     </div>
     )   
 }

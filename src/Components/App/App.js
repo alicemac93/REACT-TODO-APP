@@ -10,9 +10,9 @@ import { lightTheme, darkTheme } from "/Users/alicemaciejewska/Desktop/Projects/
 
 function App() {
   const [tasks, setTasks] = useState([
-    { id: 0, name: "Eat", completed: true },
-    { id: 1, name: "Sleep", completed: false },
-    { id: 2, name: "Repeat", completed: false }
+    { id: 0, name: "Complete online Javascript course", completed: true },
+    { id: 1, name: "Jog around the park", completed: false },
+    { id: 2, name: "10 minutes meditation", completed: false }
   ]);
 
   const addTask = (name) => {
@@ -58,7 +58,7 @@ const toggleDarkMode = () => {
   <div className={theme === 'light' ? "lightBackground background" : "darkBackground background"} 
     ><div className="app">
     <div className="heading">
-    <h1>TODO</h1>
+    <h1 style={{color: "white"}}>TODO</h1>
     <DarkModeSwitch
       onClick={themeToggler}
       size={20}
