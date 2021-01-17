@@ -5,3 +5,6 @@
     justify-content: left;
 }
 
+.task:hover {
+    cursor: pointer;
+}

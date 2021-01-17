@@ -1,8 +1,8 @@
 .app{
-  padding-top: 5%;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 500px;
   margin: 0 auto;
 }
 
@@ -11,7 +11,6 @@
   align-items: baseline;
   justify-content: space-between;
 }
-
 
 .darkBackground {
   background-image: url("/Users/alicemaciejewska/Desktop/Projects/frontend_mentor/todo-app-main/to-do-january/src/images/bg-desktop-dark.jpg");
@@ -25,3 +24,28 @@
   background-repeat: no-repeat;
   transition: all 0.50s linear;
 }
+
+.dnd-cta {
+  text-align: center;
+  padding-top: 20px;
+  color: grey;
+}
+
+@media only screen and (max-width: 600px){
+  .app {
+    width: 90%;
+  }
+  .dnd-cta {
+    padding-top: 80px;
+  }
+}
+@media only screen and (max-width: 375px){
+.darkBackground {
+  background-image: url("/Users/alicemaciejewska/Desktop/Projects/frontend_mentor/todo-app-main/to-do-january/src/images/bg-mobile-dark.jpg");
+}
+.lightBackground {
+  background-image: url("/Users/alicemaciejewska/Desktop/Projects/frontend_mentor/todo-app-main/to-do-january/src/images/bg-mobile-light.jpg");
+}
+.app{
+  padding-top: 40px;
+}}

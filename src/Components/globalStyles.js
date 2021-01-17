@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .topBar {
     background-color: ${({ theme }) => theme.tasksBody};
+    box-sizing: border-box;
     width: 100%;
     height: 40px;
     border: none;
@@ -24,11 +25,11 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Josefin Sans';
   }
 
-  .taskList{ 
+  .listGlobal{ 
     background: ${({ theme }) => theme.tasksBody};
-    border-radius: 6px;
   }
   `
 
-  
+ 
+
 // destructed props.theme ( ${props => props.theme.background})

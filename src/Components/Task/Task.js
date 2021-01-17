@@ -6,7 +6,7 @@ import cross from "/Users/alicemaciejewska/Desktop/Projects/frontend_mentor/todo
 
 // styles
 const delBtnStyle = {height: 15, position: "absolute", right: "5%", top: 20 }
-const crossed = {textDecoration: "line-through"}
+const crossed = {textDecoration: "line-through", color: "lightgrey"}
 
 const useStyles = makeStyles({
     root: {
@@ -32,10 +32,10 @@ function Task(props) {
             classes={{
                 checked: classes.checked, 
                 root: classes.root}}
-    
             checked={props.completed}
             />
-        <p style={props.completed ? crossed : null }>{props.name}</p>
+        <p  style={props.completed ? crossed : null} 
+            onClick={() => props.onToggle(props.id)}>{props.name}</p>
         {isShown &&
         <input type="image" alt="close button" style={delBtnStyle} src={cross} onClick={() => props.onDelete(props.id)} />}
         </div>

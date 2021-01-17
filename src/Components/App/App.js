@@ -10,11 +10,11 @@ import { lightTheme, darkTheme } from "/Users/alicemaciejewska/Desktop/Projects/
 
 function App() {
   const [tasks, setTasks] = useState([
-    { id: 0, name: "Complete online Javascript course", completed: true },
-    { id: 1, name: "Jog around the park", completed: false },
-    { id: 2, name: "10 minutes meditation", completed: false }
+    { id: "a", name: "Complete online Javascript course", completed: true },
+    { id: "b", name: "Jog around the park", completed: false },
+    { id: "c", name: "10 minutes meditation", completed: false }
   ]);
-
+ 
   const addTask = (name) => {
     setTasks((prev) => [...prev, {
     id: nanoid(),
@@ -45,25 +45,21 @@ const [isDarkMode, setDarkMode] = useState(false);
 
 const themeToggler = () => {
   theme === 'light' ? setTheme('dark') : setTheme('light'); 
+  isDarkMode === false ? setDarkMode(true): setDarkMode(false);
 }
-
-const toggleDarkMode = () => {
-  isDarkMode ? setDarkMode(true) : setDarkMode(false);
-};
 
   return (    
   <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
   <>
   <GlobalStyles/>
-  <div className={theme === 'light' ? "lightBackground background" : "darkBackground background"} 
-    ><div className="app">
+  <div className={theme === 'light' ? "lightBackground background" : "darkBackground background"} >
+  <div className="app">
     <div className="heading">
     <h1 style={{color: "white"}}>TODO</h1>
     <DarkModeSwitch
       onClick={themeToggler}
-      size={20}
+      size={25}
       checked={isDarkMode}
-      onChange={toggleDarkMode}  
     />
     </div>
     <TopBar
@@ -72,11 +68,12 @@ const toggleDarkMode = () => {
     <TaskList 
       className="taskList"
       tasks={tasks}
+      setTasks={setTasks}
       onToggle={toggleCompleted}
       onDelete={deleteTask}
       onDeleteCompleted={deleteCompleted}
     />
-    <p>Drag and drop to reorder list</p>
+    <p class="dnd-cta">Drag and drop to reorder list</p>
     </div>
     </div>
     </>
