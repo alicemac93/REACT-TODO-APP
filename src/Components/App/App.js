@@ -10,9 +10,9 @@ import { lightTheme, darkTheme } from "/Users/alicemaciejewska/Desktop/Projects/
 
 function App() {
   const [tasks, setTasks] = useState([
-    { id: "a", name: "Complete online Javascript course", completed: true },
-    { id: "b", name: "Jog around the park", completed: false },
-    { id: "c", name: "10 minutes meditation", completed: false }
+    { id: nanoid(), name: "Complete online Javascript course", completed: true },
+    { id: nanoid(), name: "Jog around the park", completed: false },
+    { id: nanoid(), name: "10 minutes meditation", completed: false }
   ]);
  
   const addTask = (name) => {

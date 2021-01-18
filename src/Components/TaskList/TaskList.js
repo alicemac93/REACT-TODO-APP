@@ -15,7 +15,6 @@ function TaskList(props){
       };
 
     function handleOnDragEnd(result) {
-        if (!result.destination) return;
         const items = [...props.tasks];
         const [reorderedItem] = items.splice(result.source.index, 1);
         items.splice(result.destination.index, 0, reorderedItem);
@@ -25,27 +24,27 @@ function TaskList(props){
     return(
         <div className="taskList listGlobal">
         <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId="characters">
+            <Droppable droppableId="tasks">
             {(provided) => (
-            <ul className="characters" {...provided.droppableProps} ref={provided.innerRef}>
+            <div className="tasks" {...provided.droppableProps} ref={provided.innerRef}>
             {props.tasks.filter(filter_MAP[filters]).map((t, i) => {
             return (
-            <Draggable key={i} draggableId={t.id} index={i}>
+            <Draggable key={t.id} draggableId={t.id} index={i}>
                 {(provided) => (
-                <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={{listStyle: "none"}}>
+                <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                     <Task
                     name={t.name}
                     id={t.id}
                     completed={t.completed}
                     onDelete={props.onDelete}
                     onToggle={props.onToggle} />
-                </li>
+                </div>
             )}
             </Draggable>
             )
             })}
             {provided.placeholder}
-            </ul>
+            </div>
             )}
             </Droppable>
         </DragDropContext>
